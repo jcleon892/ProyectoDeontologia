@@ -7,7 +7,7 @@ var _Gravity = 0.98 / 5;
 //var fact = 200,  variacion=30;  // control de distancias de las plataformas 
 var pivot;
 var rotAux = 0;
-var initGame = false;
+var initGame = true;
 var ceilingValue = 3000; //Distancia comparada con altura de salto para crear otro powerup
 var EndPlaform = 0; // Distancia anterior entre plaformas 
 var widthArea = 300; // ancho del juego 
