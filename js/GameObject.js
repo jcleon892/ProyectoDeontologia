@@ -17,7 +17,8 @@ class GameObject extends THREE.Object3D{
 	}
 	
 	//update all gameObjects
-	update(){
+	update()
+	{
 		
 	}
 	
@@ -29,7 +30,6 @@ class GameObject extends THREE.Object3D{
 	
 	stop()
 	{
-		console.log("stop")
 		this.OnTransition = true;
 		var auxVel = this.velocity;
 		var auxforceFactor = this.forceFactor;

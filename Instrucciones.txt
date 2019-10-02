@@ -1,0 +1,12 @@
+Instrucciones de uso
+
+a) Mozilla Firefox 
+	1.Escribir about:config en la url del navegador
+	2.En caso de aparecer una pantalla seleccionar aceptar
+	3.Buscar la opcion security.fileuri.strict_origin_policy
+	4.Doble click en esta para cambiar la opcion de true a false
+	5.Cerrar pestaña
+	6.Abrir el juego con el navegador Mozilla Firefox
+
+*Actualmente solo se soporta una resolucion de 1280 x 720, por lo que si la resolucion es mayor, 
+los menus podrian no estar calibrados

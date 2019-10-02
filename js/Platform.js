@@ -7,35 +7,34 @@ class Platform extends GameObject {
 	//3 , 2 o 1 golpe
 	//al llegar a 0 de resistencia la plataforma debe desaparecer
 
-	constructor(position, velocity, lifes, width, height, depth, cubeMaterialArray, initialForce, forceFactor, type, right, destroy,onTransition) {
-		super(position, width, height, depth, cubeMaterialArray,onTransition);
+	constructor(position, velocity, lifes, width, height, depth, cubeMaterialArray, initialForce, forceFactor, type, right, destroy, onTransition) {
+		super(position, width, height, depth, cubeMaterialArray, onTransition);
 		this.velocity = velocity;
 		this.lifes = lifes;
-		this.moveForce = initialForce;
-		this.forceFactor = forceFactor;
-		this.type = type;
+		this.moveForce = initialForce; //////valores iniciales de movimiento
+		this.forceFactor = forceFactor; ////// velocidad de la plataforma
+		this.type = type; /////// type de plaforma 
 		this.localPosition = position;
 		this.width = width;
 		this.height = height;
 		this.depth = depth;
-		this.right = right;
+		this.right = right; ///// determina si la plaforma se mueve de izquierda o derecha hacia los valores negativos es false
 		this.destroy = destroy;
 		this.visited = false;
 
 	}
 
 	update() {
-		if(!this.onTransition)
-		{
+		if (!this.onTransition) {
 			this.PlatformMovement();
 		}
 	}
 
-	TextureCambio(textureCambio){
-		this.texture=new THREE.MeshFaceMaterial( textureCambio );
-		this.mesh = new THREE.Mesh( this.geometry, this.texture );
-		this.mesh.position.set(this.localPosition.x,this.localPosition.y,this.localPosition.z);
-	
+	TextureCambio(textureCambio) {
+		this.texture = new THREE.MeshFaceMaterial(textureCambio);
+		this.mesh = new THREE.Mesh(this.geometry, this.texture);
+		this.mesh.position.set(this.localPosition.x, this.localPosition.y, this.localPosition.z);
+
 	}
 
 	//varia moviento de la plataforma en forma lineal
@@ -47,9 +46,9 @@ class Platform extends GameObject {
 			this.localPosition.z += this.velocity.z * this.forceFactor;
 			if (this.mesh.position.x >= widthArea || this.mesh.position.z >= widthArea) {
 				this.right = false;
-
 			}
-		} else {
+		}
+		else {
 
 			this.localPosition.x -= this.velocity.x * this.forceFactor;
 			this.localPosition.z -= this.velocity.z * this.forceFactor;
@@ -63,18 +62,17 @@ class Platform extends GameObject {
 		this.mesh.position.x = this.localPosition.x;
 		this.mesh.position.z = this.localPosition.z;
 	}
-	
-	stop()
-	{
+
+	stop() {
 		GameObject.prototype.stop.call(this);
 	}
-	
+
 }
 
 
 class Senoidal extends Platform {
-	constructor(position, velocity, lifes, width, height, depth, cubeMaterialArray, initialForce, forceFactor, type, right) {
-		super(position, velocity, lifes, width, height, depth, cubeMaterialArray, initialForce, forceFactor, type, right);
+	constructor(position, velocity, lifes, width, height, depth, cubeMaterialArray, initialForce, forceFactor, type, right, destroy,onTransition) {
+		super(position, velocity, lifes, width, height, depth, cubeMaterialArray, initialForce, forceFactor, type, right, destroy,onTransition);
 		this.up = true;
 		this.angle = 3.0;
 
@@ -82,6 +80,7 @@ class Senoidal extends Platform {
 
 	//varia moviento de la plataforma en forma senoida
 	//desplaza en x y z 
+
 	PlatformMovement() {
 
 		if (this.right) {
@@ -132,13 +131,7 @@ class Fire extends Platform {
 	constructor(position, velocity, lifes, width, height, depth, cubeMaterialArray, initialForce, forceFactor, type, right) {
 		super(position, velocity, lifes, width, height, depth, cubeMaterialArray, initialForce, forceFactor, type, right);
 		this.fire = false;
-
-
 	}
-
-
-
-
 
 }
 
@@ -147,42 +140,27 @@ class Fire extends Platform {
 //crea nuevas plataformas y elimina 
 
 function PlatformPosition() {
-
-
-	if (maxPlayer < player.maxAltitude) {
-		maxPlayer = player.maxAltitude + 100;
-
-		//elimina plataformas
-		if (player.maxAltitude - platforms[0].localPosition.y > 500) {
-			//	minPlayer += 500;
-			scene.remove(platforms[0].mesh);
-			platforms.shift();
-		}
-		// crea nueva plataforma
-		if (platforms[platforms.length - 1].localPosition.y - player.localPosition.y < 500 && platforms.length < 20) {
-			NewPlaform(cubeMaterialArray);
-		}
-
-		// actuliza la posicion de todas plataformas
-		for (let i = 0; i = platforms < platforms.length; i++) {
-			platforms[i].localPosition.y -= player.maxAltitude - maxPlayer;
-			platforms[i].mesh.position.y = platforms[i].localPosition.y;
-
-		}
-		camera.position.y = player.localPosition.y; // actualiza la altura de la camara 
+	//elimina plataformas
+	if (player.maxAltitude - platforms[0].localPosition.y > 500) {
+		//	minPlayer += 500;
+		scene.remove(platforms[0].mesh);
+		platforms.shift();
+	}
+	// crea nueva plataforma
+	if (platforms[platforms.length - 1].localPosition.y - player.localPosition.y < 2500 && platforms.length < 20) {
+		NewPlaform();
 	}
 }
 
-function initPlaform(cant, material) {
+function initPlaform(cant) {
 
 	for (let i = 0; i < cant; i++) {
 
-		NewPlaform(material);
-
+		NewPlaform();
 	}
-
 }
 
+/////
 function Factor() {
 	var factor = 1;
 	if (Boolean(Math.round(Math.random()))) {
@@ -191,87 +169,35 @@ function Factor() {
 	return factor;
 }
 
-function NewPlaform(material) {
 
-	var x = 1;
-	var y = 0;
-	var textureFinal;
-
-	//var factor=Factor();	
-	x = (Factor()) * Math.floor(Math.random() * widthArea);
-	//	z = (Factor()) * Math.floor(Math.random() * widthArea);
-	//posiion de la plataforma en el eje y con un factor de distancia y una variacon de esta 
-	y += EndPlaform + fact + Factor() * Math.floor(Math.random() * variacion);
-	EndPlaform = y;
-
-	//asignacion si la plataforma se puede destruir
-	var destroyPlataform = Boolean(Math.round(Math.random()));
-	var lifesPlataform = 1;
-	// asignacion de vidas a la plataforma
-	if (destroyPlataform) {
-		lifesPlataform = Math.floor(Math.random() * 3) + 1;
-		switch (lifesPlataform) {
-			case 1:
-				textureFinal=platformLife1;
-				break;
-			case 2:
-				textureFinal=platformLife2;
-				break;
-			case 3:
-				textureFinal=platformLife3;
-				break;
-
-
-		}
-
-
-	} else {
-		textureFinal = platformPrincipal;
-	}
-	//asignacion de eje en el cual la plataforma se desplaza
-	var movX = 0;
-	var movZ = 0;
-	if (Boolean(Math.round(Math.random()))) {
-		movX = 1;
-	} else {
-		movZ = 1;
-	}
-	// asignacion entre dos tipos de plataformas 	
-
-	var opc = Math.floor(Math.random() * 3) + 1; // opciones de platafomas
-
-	console.log(opc);
-	switch (opc) {
-		case 1:
-			platforms.push(new Platform(new THREE.Vector3(x, y, -200), new THREE.Vector3(movX, 1, movZ), lifesPlataform, 200, 30, 50, textureFinal, 1, 2, opc, Boolean(Math.round(Math.random())), destroyPlataform));
-			break;
-		case 2:
-			platforms.push(new Senoidal(new THREE.Vector3(x, y, -200), new THREE.Vector3(movX, 1, movZ), lifesPlataform, 200, 30, 50, textureFinal, 1, 2, opc, Boolean(Math.round(Math.random())), destroyPlataform));
-			break;
-		case 3:
-			textureFinal=platformFireOff;
-			platforms.push(new Fire(new THREE.Vector3(x, y, -200), new THREE.Vector3(0, 0, 0), lifesPlataform, 200, 30, 50, textureFinal, 1, 2, 1, Boolean(Math.round(Math.random())), true));
-			break;
-	}
-
-	scene.add(platforms[platforms.length - 1].mesh);
-
-}
 
 // score
 function updateScore() {
 
-	if (player.localPosition.y - previousHeight > deltaModifier) {
+	if (player.localPosition.y  > deltaModifier) {
 		if (modifier <= 5) {
 			modifier++;
+			deltaModifier=player.localPosition.y+5000;
 		}
-		score += Math.round(player.localPosition.y - previousHeight) * modifier;
-		previousHeight = player.localPosition.y;
+
 	}
-	if (previousScore != score) {
-		console.log(modifier);
-		console.log("Score " + score);
-		previousScore = score;
+	if (player.localPosition.y > previousHeight) {
+
+		scorePlus += Math.round(player.localPosition.y - previousHeight) ;
+		previousHeight = player.localPosition.y;
+		scoreText.innerHTML = "score:  " + score;
+		waitText.innerHTML = "plus: " + scorePlus;
+		plusText.innerHTML = "  multiplier:  " + modifier;
+		lifeText.innerHTML = "  life:  " + player.lifes;
 	}
 
+
+}
+function updateDatosScore(){
+	//if(!player.isGrounded && player.localPosition>player.lasMaxAltitude){
+		score+=scorePlus*modifier;
+		scorePlus=0;
+		modifier=1;
+	//}
+	
 }

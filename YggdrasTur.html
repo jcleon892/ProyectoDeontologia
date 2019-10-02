@@ -1,19 +1,192 @@
 <!DOCTYPE html>
 <html>
 	<head>
+
+			<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+
 			<style type="text/css">
+
+			@font-face {
+			  font-family: MyEpistolar;
+			  src: local("Epistolar"),
+			  url(Epistolar.woff)format('woff'),
+			  url(Epistolar.ttf)  ;
+
+			  font-weight: bold;
+			}
 				body 
 				{
 					margin: 0;
 				}
 				#c 
 				{
-				  width: 100%;
-				  height: 100%;
+				  max-width: 1280px;
+				  max-height: 720px;
 				  display: block;
-				}			
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal
+				}	
 				
+				.MenuGeneral 
+				{
+				  position: absolute;
+				  top:0%; 
+				  max-width: 1280px;
+				  max-height: 720px;
+				  overflow-y: hidden; // hide vertical
+				  overflow-x: hidden; // hide horizontal
+				}
 
+				.MenuGeneral img 
+				{
+				 top:0%; 
+				  max-width: 1280px;
+				  max-height: 720px;
+				}
+
+				.MenuGeneral .btn 
+				{
+				  position: static;
+				  color: black;
+				  font-size: 16px;
+				  border: none;
+				  cursor: pointer;
+				  text-align: center;
+				}
+				
+				.MenuGeneral .btn:hover 
+				{
+				background-color: black;
+				color: white;
+				}
+
+				.btn1 {padding: 40px 110px; transform: translate(130px, -570px); background:url(Images/play.png) no-repeat;}				
+				.btn2 {padding: 40px 110px; transform: translate(769px, -440px); background:url(Images/creditos.png) no-repeat;}
+				.btn3 {padding: 40px 110px; transform: translate(545px, -320px); background:url(Images/exit.png) no-repeat;}
+				.btn4 {padding: 67px 46px; transform: translate(700px, -700px); background:url(Images/BotonInstrucciones.png) no-repeat;}
+				.btn5 {padding: 67px 46px; transform: translate(600px, -160px); background:url(Images/musicaOn.png) no-repeat;} 
+				
+				.btn6 {padding: 40px 110px; transform: translate(600px, -320px); background:url(Images/play.png) no-repeat;}
+
+
+				.Creditos 
+				{
+				  position: absolute;
+				  top:0%; 
+				  max-width: 1280px;
+				  max-height: 720px;
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal
+				}
+
+				.Creditos img 
+				{
+				  top:0%; 
+				  max-width: 1280px;
+				  max-height: 720px;
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal;
+				}
+
+				.Creditos .button 
+				{
+				  position: absolute;
+				  color: black;
+				  font-size: 16px;
+				  border: none;
+				  cursor: pointer;
+				  text-align: center;
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal
+				}
+				
+				.Creditos .button:hover 
+				{
+				background-color: black;
+				color: white;
+				}
+				
+				.buttonC {padding: 47px 43px; transform: translate(1160px, -120px); background:url(Images/atrás.png) no-repeat;}
+
+				.Instruction
+				{
+				  position: absolute;
+				  top:0%; 
+				  max-width: 1280px;
+				  max-height: 720px;
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal
+				}
+
+				.Instruction img 
+				{
+				  top:0%; 
+				  max-width: 1280px;
+				  max-height: 720px;
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal
+				}
+
+				.Instruction .buttonI
+				{
+				  
+				  position: absolute;
+				  color: black;
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal
+				  border: none;
+				  cursor: pointer;
+				  text-align: center;
+				}
+				
+				.Instruction .buttonI:hover 
+				{
+				background-color: black;
+				color: white;
+				}
+				
+				.buttonI1 {padding: 47px 43px; transform: translate(1160px, -120px); background:url(Images/atrás.png) no-repeat;}
+				
+				.Reset 
+				{
+				  position: absolute;
+				  top:0%; 
+				  max-width: 1280px;
+				  max-height: 720px;
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal
+				}
+
+				.Reset img 
+				{
+				  top:0%; 
+				  max-width: 1280px;
+				  max-height: 720px;
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal
+
+				}
+
+				.Reset .button 
+				{
+				  position: absolute;
+				  align: center;
+				  color: black;
+				  font-size: 16px;
+				  border: none;
+				  cursor: pointer;
+				  text-align: center;
+				  overflow-y: hidden; // hide vertical
+                  overflow-x: hidden; // hide horizontal
+				}
+				
+				.Reset .button:hover 
+				{
+				background-color: black;
+				color: white;
+				}
+				
+				.buttonR {padding: 114px 209px; transform: translate(750px, -320px); background:url(Images/tryAgain.png) no-repeat;}		
 				
 			</style>
 			
@@ -25,23 +198,76 @@
 		<body>
 
 
-				<script type="text/javascript" src="js/Three.js"></script>
-				<script type="text/javascript" src="js/OrbitControls.js"></script>
-				<script type="text/javascript" src="js/KeyboardController.js"></script>
-				<script type="text/javascript" src="js/GLTFLoader.js"></script>
+				<div id = "Rest" class="Reset">
+					<img src="Images/gameOverNuevo.png">
+				    <button id ="TryAgain" class="btn buttonR"></button>
+				</div>
 
+				<div id = "Menu" class="MenuGeneral">
+				    <img src="Images/MENU2A.png">
+				    <button id = "DIE" class="btn btn6"></button>
+				    <button id = "Credits" class="btn btn2"></button>
+				    <button id = "Exit" class="btn btn3"></button>
+				    <button id = "Instrucctions"class="btn btn4"></button>
+					<button id = "Music" class="btn btn5"></button>
+					<button id = "Play" class="btn btn1"></button>
+
+				</div>
+				
+				<div id = "Conf" class="Creditos">
+				    <img src="Images/credits.png">
+				    <button id ="BackCredits" class="btn buttonC"></button>
+				</div>
+				
+				<div id = "Inst" class="Instruction">
+					<img src="Images/instructionsNuevo.png">
+				    <button id ="BackInstructions" class="btn buttonI1"></button>
+				</div>
+				
+
+
+
+
+
+				<!--script type="text/javascript" src="js/three.min.js"></script>
+				<!--script type="text/javascript" src="js/stats.min.js"></script-->
+				<!--script type="text/javascript" src="js/OBJLoader.js"></script-->
+				
+				<script type="text/javascript" src="js/Three.js"></script>
+				<!--script src="http://threejs.org/examples/js/loaders/MTLLoader.js"></script-->
+				<script src="http://threejs.org/examples/js/loaders/OBJLoader.js"></script>
+				<!--script src="http://threejs.org/examples/js/loaders/GLTFLoader.js"></script>
+				<script src="http://threejs.org/examples/js/loaders/ObjectLoader.js"></script-->
+				<script type="text/javascript" src="js/KeyboardController.js"></script>
 				<script type="text/javascript" src="js/GameObject.js"></script>
 				<script type="text/javascript" src="js/PowerUp.js"></script>
 				<script type="text/javascript" src="js/Player.js"></script>
 				<script type="text/javascript" src="js/Enemy.js"></script>
 				<script type="text/javascript" src="js/Platform.js"></script>
+				<script type="text/javascript" src="js/Disaster.js"></script>	
+				<script type="text/javascript" src="js/LevelController.js"></script>
 				<script type="text/javascript" src="js/GameController.js"></script>	
 				<script type="text/javascript" src="js/MenuController.js"></script>	
-
-
-			
 				
-			
+				<audio id="WarpOGG" 	src="/Audio/Sonidos/OGG/PWU-Warp.ogg" 		preload="auto"></audio>
+				<audio id="ThunderOGG" 	src="/Audio/Sonidos/OGG/DN-Thunder.ogg" 		preload="auto"></audio>
+				<audio id="ClickOGG" 	src="/Audio/Sonidos/OGG/Click-Sword-Strike.ogg" 		preload="auto"></audio>
+				<audio id="GameOverOGG" 	src="/Audio/Sonidos/OGG/Game-Over-Voice.ogg" 		preload="auto"></audio>
+				<audio id="DamageOGG" 	src="/Audio/Sonidos/OGG/PJ-Damage.ogg" 		preload="auto"></audio>
+				<audio id="JumpOGG" 	src="/Audio/Sonidos/OGG/PLF-Jump.ogg" 		preload="auto"></audio>
+				<audio id="HyperJumpOGG" 	src="/Audio/Sonidos/OGG/PWU-HyperJump.ogg" 		preload="auto"></audio>
+				<audio id="ShieldOGG" 	src="/Audio/Sonidos/OGG/PWU-Shield.ogg" 		preload="auto"></audio>
+
+				<audio id="WarpMP3" 	src="/Audio/Sonidos/MP3/PWU-Warp.mp3" 		preload="auto"></audio>
+				<audio id="ThunderMP3" 	src="/Audio/Sonidos/MP3/DN-Thunder.mp3" 		preload="auto"></audio>
+				<audio id="ClickMP3" 	src="/Audio/Sonidos/MP3/Click-Sword-Strike.mp3" 		preload="auto"></audio>
+				<audio id="GameOverMP3" 	src="/Audio/Sonidos/MP3/Game-Over-Voice.mp3" 		preload="auto"></audio>
+				<audio id="DamageMP3" 	src="/Audio/Sonidos/MP3/PJ-Damage.mp3" 		preload="auto"></audio>
+				<audio id="JumpMP3" 	src="/Audio/Sonidos/MP3/PLF-Jump.mp3" 		preload="auto"></audio>
+				<audio id="HyperJumpMP3" 	src="/Audio/Sonidos/MP3/PWU-HyperJump.mp3" 		preload="auto"></audio>
+				<audio id="ShieldMP3" 	src="/Audio/Sonidos/MP3/PWU-Shield.mp3" 		preload="auto"></audio>
+
+
 
 
 
