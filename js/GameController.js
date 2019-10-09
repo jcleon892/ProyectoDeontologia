@@ -7,7 +7,7 @@ var _Gravity = 0.98 / 5;
 //var fact = 200,  variacion=30;  // control de distancias de las plataformas 
 var pivot;
 var rotAux = 0;
-var initGame = true;
+var initGame = false;
 var ceilingValue = 3000; //Distancia comparada con altura de salto para crear otro powerup
 var EndPlaform = 0; // Distancia anterior entre plaformas 
 var widthArea = 300; // ancho del juego 
@@ -319,7 +319,7 @@ function init() {
 	// Add the mesh to the scene
 
 	player = new Player(new THREE.Vector3(5, 500, -200), new THREE.Vector3(45, 0, 45), 3, 70, 70, 70, backgroundNiflheim, 0.1, 10, true);
-	player.mesh.visible = true;
+	player.mesh.visible = false;
     // prepare loader and load the model
     /*var oLoader = new THREE.OBJMTLLoader();
     oLoader.load('models/yggdra70.obj', 'models/yggdra70.mtl', function(object) {
