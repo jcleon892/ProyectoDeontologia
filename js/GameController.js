@@ -55,6 +55,7 @@ var warpPowerUp = [];
 
 var platformLife1 = []; // textura ladrillo de 1 vidas
 
+var playerGame=[];
 
 var platforms = [];  // areglo de plaformas
 var enemies = [];  // areglo de enemigos
@@ -109,6 +110,14 @@ function init() {
 	backgroundNiflheim.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/background/Niflheim/nilfheim_front.png"), side: THREE.DoubleSide }));
 	backgroundNiflheim.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/background/Niflheim/nilfheim_back.png"), side: THREE.DoubleSide }));
 	backgroundNiflheim.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/background/Niflheim/nilfheim_front.png"), side: THREE.DoubleSide }));
+
+	
+	playerGame.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/player/player.png"), side: THREE.DoubleSide }));
+	playerGame.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/player/player.png"), side: THREE.DoubleSide }));
+	playerGame.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/player/player.png"), side: THREE.DoubleSide }));
+	playerGame.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/player/player.png"), side: THREE.DoubleSide }));
+	playerGame.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/player/player.png"), side: THREE.DoubleSide }));
+	playerGame.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/player/player.png"), side: THREE.DoubleSide }));
 
 	///////Jotunheim
 	backgroundJotunheim.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/background/Jotünheim/jotunheim_right.png"), side: THREE.DoubleSide }));
@@ -318,8 +327,8 @@ function init() {
 
 	// Add the mesh to the scene
 
-	player = new Player(new THREE.Vector3(5, 500, -200), new THREE.Vector3(45, 0, 45), 3, 70, 70, 70, backgroundNiflheim, 0.1, 10, true);
-	player.mesh.visible = false;
+	player = new Player(new THREE.Vector3(5, 500, -200), new THREE.Vector3(45, 0, 45), 3, 70, 70, 70, playerGame, 0.1, 10, true);
+	player.mesh.visible = true;
     // prepare loader and load the model
     /*var oLoader = new THREE.OBJMTLLoader();
     oLoader.load('models/yggdra70.obj', 'models/yggdra70.mtl', function(object) {
