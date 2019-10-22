@@ -255,6 +255,11 @@ class Player extends GameObject
 		{
 			if(collision(this,enemies[i]))
 			{
+				console.log("pregunta");
+
+				///configuracion scrit de peguntas 
+
+
 				enemiesIndex = i;
 				enemyDestroy = true;
 			}
