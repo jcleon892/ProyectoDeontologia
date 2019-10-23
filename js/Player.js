@@ -135,7 +135,8 @@ class Player extends GameObject
 				this.mesh.position.z = this.localPosition.z;
 				}
 			}
-		}
+		} 
+
 		if(!keyboard[keyboardValues.LEFT_ARROW] &&
 		!keyboard[keyboardValues.RIGHT_ARROW])
 		{

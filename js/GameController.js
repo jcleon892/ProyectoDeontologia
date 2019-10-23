@@ -703,44 +703,7 @@ function collision(object1, object2) {
 }
 
 
-function pregunta(){
 
-	console.log("pregunta pueba")
-	
-	pregunta.innerHTML = "hola mundo";
-
-
-	initGame=false;
-/*
-	preguntatxt = document.createElement('div');
-	preguntatxt.style.position = 'absolute';
-	preguntatxt.style.width = 500;
-	preguntatxt.style.height = 500;
-	preguntatxt.style.backgroundImage= "url(Images/gamePregunta.png)"
-	preguntatxt.style.display="block";
-
-	
-	document.body.appendChild(preguntatxt);
-
-	*/	
-	document.getElementById("Preg").disabled = false;
-	document.getElementById("Preg").style.display = "block";
-	document.getElementById("Preg").style.backgroundImage = "url(Images/musicaOn.png)";
-	
-	
-	
-
-
-
-	
-
-	//document.body.appendChild(pregunta);
-
-	
-
-
-
-}
 
 
 function gamerOver() {

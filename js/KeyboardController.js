@@ -2,7 +2,7 @@ var keyboard = {};
 
 //Keyboard input values
 var keyboardValues = {
-      BACKSPACE: 8,
+      BACKSPACE: 32,
       TAB: 9,
       ENTER: 13,
       SHIFT: 16,
@@ -106,7 +106,20 @@ var keyboardValues = {
 window.addEventListener("keydown", function (event) 
 {
     keyboard[event.keyCode] = true;
-});
+
+    if(event.keyCode==32){
+        if(initGame){
+            initGame=false;
+        }else{
+            initGame=true;
+        }
+    }
+	
+	
+
+   
+
+   });
 
 window.addEventListener("keyup", function (event) 
 {
