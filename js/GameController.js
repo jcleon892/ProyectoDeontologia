@@ -109,11 +109,13 @@ var preguntasnivel9=[];
 function init() {
 
 
+	
+
 
 
 	preguntasnivel1.push(new PreguntaEvento("Las siglas pep significan:", "Prototipo educativo de programa.", "x","Proyecto enfocado en la pedagogía", "Presentación educativa de programa"));
-	//preguntasnivel1.push(new PreguntaEvento("A continuación se presenta:", "Prototipo educativo de programa.", "x","Proyecto enfocado en la pedagogía", "Presentación educativa de programa"));
-	
+	preguntasnivel1.push(new PreguntaEvento(" A continuación se presenta:", "Sólo b y c. ", "Información cátedra específica sobre las materias que se verán en la ingeniería de sistemas.","Información sobre elementos fundamentales del modelo educativo", "Información sobre elementos de la pedagogía del programa y sus estrategias pedagógicas."));
+	preguntasnivel2.push(new PreguntaEvento());
 
 
 	//BACKGROUND

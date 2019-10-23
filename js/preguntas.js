@@ -34,7 +34,9 @@ function pregunta(){
 	document.getElementById("Preg").style.backgroundImage = "url(Images/musicaOn.png)";
 
 
-	//document.getElementById("btnA").style.position = 'absolute';		
+    //document.getElementById("btnA").style.position = 'absolute';
+    document.getElementById("Preg").style.font = "20px MyEpistolar";	
+    document.getElementById("Preg").style.color = "white";
 	document.getElementById("btnA").style.font = "20px MyEpistolar";
 	document.getElementById("btnA").style.color = "white";
 	document.getElementById("btnB").style.font = "20px MyEpistolar";
@@ -44,11 +46,15 @@ function pregunta(){
 	document.getElementById("btnD").style.font = "20px MyEpistolar";
 	document.getElementById("btnD").style.color = "white";
 
+    document.getElementById("Preg").innerHTML = preguntasnivel1.pregunta;
+    lifeText.style.top = 100 + 'px';
+	lifeText.style.right = 100 + 'px';
 
-	document.getElementById("btnA").innerHTML = "Proyecto educativo de profesión" ;
-	document.getElementById("btnB").innerHTML = "" ;
-	document.getElementById("btnC").innerHTML = "" ;
-	document.getElementById("btnD").innerHTML = "" ;
+
+	document.getElementById("btnA").innerHTML = preguntasnivel1.respuestaCorreta ;
+	document.getElementById("btnB").innerHTML = preguntasnivel1.respuestafalsa1 ;
+	document.getElementById("btnC").innerHTML =preguntasnivel1.respuestafalsa2 ;
+	document.getElementById("btnD").innerHTML = preguntasnivel1.respuestafalsa3 ;
 	document.getElementById("btnA").addEventListener('click', function (event)
 	{
 		console.log("boton A")
