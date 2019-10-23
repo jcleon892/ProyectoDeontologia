@@ -53,6 +53,8 @@ var resortPowerUp = [];
 var shieldPowerUp = [];
 var warpPowerUp = [];
 
+
+
 var platformLife1 = []; // textura ladrillo de 1 vidas
 
 var playerGame=[];
@@ -84,6 +86,7 @@ var scoreText;
 var waitText;
 var plusText;
 var lifeText;
+var preguntatxt;
 
 var gameOmerText;
 var timeLife;
@@ -529,6 +532,7 @@ function init() {
 	lifeText.style.color = "white";
 	document.body.appendChild(lifeText);
 
+
 	
 	highscoresDisplay = document.createElement('div');
 	highscoresDisplay.style.position = 'absolute';
@@ -540,6 +544,11 @@ function init() {
 	highscoresDisplay.style.font = "20px MyEpistolar";
 	highscoresDisplay.style.color = "white";
 	document.body.appendChild(highscoresDisplay);
+
+	
+
+
+	
 
 	document.body.appendChild(renderer.domElement);
 
@@ -691,6 +700,46 @@ function collision(object1, object2) {
 			object1.localPosition.y + object1.height < object2.localPosition.y - (object2.height / 2) ||
 			object1.localPosition.y - (object2.height / 2) > object2.localPosition.y + object2.height ? false : true;
 	}
+}
+
+
+function pregunta(){
+
+	console.log("pregunta pueba")
+	
+	pregunta.innerHTML = "hola mundo";
+
+
+	initGame=false;
+/*
+	preguntatxt = document.createElement('div');
+	preguntatxt.style.position = 'absolute';
+	preguntatxt.style.width = 500;
+	preguntatxt.style.height = 500;
+	preguntatxt.style.backgroundImage= "url(Images/gamePregunta.png)"
+	preguntatxt.style.display="block";
+
+	
+	document.body.appendChild(preguntatxt);
+
+	*/	
+	document.getElementById("Preg").disabled = false;
+	document.getElementById("Preg").style.display = "block";
+	document.getElementById("Preg").style.backgroundImage = "url(Images/musicaOn.png)";
+	
+	
+	
+
+
+
+	
+
+	//document.body.appendChild(pregunta);
+
+	
+
+
+
 }
 
 

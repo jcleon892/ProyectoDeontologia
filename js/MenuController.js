@@ -4,7 +4,7 @@ window.onload = function()
   document.getElementById("Conf");
   document.getElementById("Inst")
   document.getElementById("Rest");
-
+  document.getElementById("Preg");
   Init();
   ButtonsAction();
 };
@@ -21,6 +21,8 @@ function Init()
    document.getElementById("Rest").disabled = true;
    document.getElementById("Rest").style.display = "none";
    
+   document.getElementById("Preg").disabled = true;
+   document.getElementById("Preg").style.display = "none";
    
    
    document.getElementById("DIE").style.disabled = true;////por alguna razon que no comprendo el primer botton del container tiene los ejes negativos, asi que lo mato

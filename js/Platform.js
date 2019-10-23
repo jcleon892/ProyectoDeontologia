@@ -195,7 +195,13 @@ function updateScore() {
 }
 function updateDatosScore(){
 	//if(!player.isGrounded && player.localPosition>player.lasMaxAltitude){
+
+		
 		score+=scorePlus*modifier;
+
+		if(score>1500){
+			pregunta();
+		}
 		scorePlus=0;
 		modifier=1;
 	//}
