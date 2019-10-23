@@ -96,7 +96,26 @@ var timeDeltaLife = 3;
 var iPlatform;
 var lastTime = Date.now();
 
+var preguntasnivel1=[];
+var preguntasnivel2=[];
+var preguntasnivel3=[];
+var preguntasnivel4=[];
+var preguntasnivel5=[];
+var preguntasnivel6=[];
+var preguntasnivel7=[];
+var preguntasnivel8=[];
+var preguntasnivel9=[];
+
 function init() {
+
+
+
+
+	preguntasnivel1.push(new PreguntaEvento("Las siglas pep significan:", "Prototipo educativo de programa.", "x","Proyecto enfocado en la pedagogía", "Presentación educativa de programa"));
+	//preguntasnivel1.push(new PreguntaEvento("A continuación se presenta:", "Prototipo educativo de programa.", "x","Proyecto enfocado en la pedagogía", "Presentación educativa de programa"));
+	
+
+
 	//BACKGROUND
 
 	/////Niflheim
