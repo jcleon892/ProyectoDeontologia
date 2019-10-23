@@ -10,39 +10,15 @@ function pregunta(){
 
 	
 
-/*
 
-highscoresDisplay = document.createElement('div');
-	highscoresDisplay.style.position = 'absolute';
-	highscoresDisplay.style.width = 100;
-	highscoresDisplay.style.height = 100;
-	highscoresDisplay.innerHTML = "";
-	highscoresDisplay.style.top = 300 + 'px';
-	highscoresDisplay.style.right = 1500 + 'px';
-	highscoresDisplay.style.font = "20px MyEpistolar";
-	highscoresDisplay.style.color = "white";
-	document.body.appendChild(highscoresDisplay);
-	
-	document.body.appendChild(preguntatxt);
-	lifeText = document.createElement('div');
-	lifeText.style.position = 'absolute';
-	lifeText.style.width = 100;
-	lifeText.style.height = 100;
-	lifeText.innerHTML = "";
-	lifeText.style.top = 50 + 'px';
-	lifeText.style.right = 80 + 'px';
-	lifeText.style.font = "20px MyEpistolar";
-	lifeText.style.color = "white";
-
-    */	
     
    preguntatxt = document.createElement('div');
    preguntatxt.style.position = 'absolute';
    preguntatxt.style.width = 100;
    preguntatxt.style.height = 100;
-   preguntatxt.innerHTML = "pregunta de pregunta";
+   preguntatxt.innerHTML = "pregunta pep";
    preguntatxt.style.top = 425 + 'px';   
-    preguntatxt.style.left = 600 + 'px';
+   preguntatxt.style.left = 400 + 'px';
    preguntatxt.style.font = "40px MyEpistolar";
    preguntatxt.style.color = "white";
    document.body.appendChild(preguntatxt);
@@ -97,7 +73,7 @@ highscoresDisplay = document.createElement('div');
    optD.style.color = "white";
    document.body.appendChild(optD);
 
-   
+
 
 	document.getElementById("Preg").disabled = false;
 	document.getElementById("Preg").style.display = "block";
