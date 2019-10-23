@@ -1,19 +1,27 @@
+
+
 function pregunta(){
 
 	console.log("pregunta pueba")
 	
-	pregunta.innerHTML = "hola mundo";
-
+	
 
 	initGame=false;
-/*
-	preguntatxt = document.createElement('div');
-	preguntatxt.style.position = 'absolute';
-	preguntatxt.style.width = 500;
-	preguntatxt.style.height = 500;
-	preguntatxt.style.backgroundImage= "url(Images/gamePregunta.png)"
-	preguntatxt.style.display="block";
 
+	
+
+/*
+
+highscoresDisplay = document.createElement('div');
+	highscoresDisplay.style.position = 'absolute';
+	highscoresDisplay.style.width = 100;
+	highscoresDisplay.style.height = 100;
+	highscoresDisplay.innerHTML = "";
+	highscoresDisplay.style.top = 300 + 'px';
+	highscoresDisplay.style.right = 1500 + 'px';
+	highscoresDisplay.style.font = "20px MyEpistolar";
+	highscoresDisplay.style.color = "white";
+	document.body.appendChild(highscoresDisplay);
 	
 	document.body.appendChild(preguntatxt);
 	lifeText = document.createElement('div');
@@ -26,35 +34,88 @@ function pregunta(){
 	lifeText.style.font = "20px MyEpistolar";
 	lifeText.style.color = "white";
 
-	*/	
+    */	
+    
+   preguntatxt = document.createElement('div');
+   preguntatxt.style.position = 'absolute';
+   preguntatxt.style.width = 100;
+   preguntatxt.style.height = 100;
+   preguntatxt.innerHTML = "pregunta de pregunta";
+   preguntatxt.style.top = 425 + 'px';   
+    preguntatxt.style.left = 600 + 'px';
+   preguntatxt.style.font = "40px MyEpistolar";
+   preguntatxt.style.color = "white";
+   document.body.appendChild(preguntatxt);
+
+
+
+   var optA;
+   optA = document.createElement('div');
+   optA.style.position = 'absolute';
+   optA.style.width = 100;
+   optA.style.height = 100;
+   optA.innerHTML = "Respuesta A";
+   optA.style.top =550 + 'px';   
+   optA.style.left = 150 + 'px';
+   optA.style.font = "40px MyEpistolar";
+   optA.style.color = "white";
+   document.body.appendChild(optA);
+
+   var optB;
+   optB = document.createElement('div');
+   optB.style.position = 'absolute';
+   optB.style.width = 100;
+   optB.style.height = 100;
+   optB.innerHTML = "Respuesta B";
+   optB.style.top = 550 + 'px';   
+   optB.style.left = 700 + 'px';
+   optB.style.font = "40px MyEpistolar";
+   optB.style.color = "white";
+   document.body.appendChild(optB);
+
+   var optC;
+   optC = document.createElement('div');
+   optC.style.position = 'absolute';
+   optC.style.width = 100;
+   optC.style.height = 100;
+   optC.innerHTML = "Respuesta C";
+   optC.style.top = 650 + 'px';   
+   optC.style.left = 150 + 'px';
+   optC.style.font = "40px MyEpistolar";
+   optC.style.color = "white";
+   document.body.appendChild(optC);
+
+   var optD;
+   optD = document.createElement('div');
+   optD.style.position = 'absolute';
+   optD.style.width = 100;
+   optD.style.height = 100;
+   optD.innerHTML = "Respuesta D";
+   optD.style.top = 650 + 'px';   
+   optD.style.left = 700 + 'px';
+   optD.style.font = "40px MyEpistolar";
+   optD.style.color = "white";
+   document.body.appendChild(optD);
+
+   
+
 	document.getElementById("Preg").disabled = false;
 	document.getElementById("Preg").style.display = "block";
 		
 	
-	document.getElementById("Preg").style.backgroundImage = "url(Images/musicaOn.png)";
+	
 
 
     //document.getElementById("btnA").style.position = 'absolute';
-    document.getElementById("Preg").style.font = "20px MyEpistolar";	
-    document.getElementById("Preg").style.color = "white";
-	document.getElementById("btnA").style.font = "20px MyEpistolar";
-	document.getElementById("btnA").style.color = "white";
-	document.getElementById("btnB").style.font = "20px MyEpistolar";
-	document.getElementById("btnB").style.color = "white";
-	document.getElementById("btnC").style.font = "20px MyEpistolar";
-	document.getElementById("btnC").style.color = "white";
-	document.getElementById("btnD").style.font = "20px MyEpistolar";
-	document.getElementById("btnD").style.color = "white";
+  
 
-    document.getElementById("Preg").innerHTML = preguntasnivel1.pregunta;
-    lifeText.style.top = 100 + 'px';
-	lifeText.style.right = 100 + 'px';
+  //  document.getElementById("Preg").innerHTML ="hola";
 
+     
 
-	document.getElementById("btnA").innerHTML = preguntasnivel1.respuestaCorreta ;
-	document.getElementById("btnB").innerHTML = preguntasnivel1.respuestafalsa1 ;
-	document.getElementById("btnC").innerHTML =preguntasnivel1.respuestafalsa2 ;
-	document.getElementById("btnD").innerHTML = preguntasnivel1.respuestafalsa3 ;
+   
+  
+    
 	document.getElementById("btnA").addEventListener('click', function (event)
 	{
 		console.log("boton A")
@@ -84,13 +145,3 @@ function pregunta(){
 
 
 
-class PreguntaEvento {
-
-    constructor(pregunta,respuestaCorreta, respuestafalsa1,respuestafalsa2,respuestafalsa3){
-        this.pregunta = pregunta;
-        this.respuestaCorreta=respuestaCorreta;
-        this.respuestafalsa1=respuestafalsa1;
-        this.respuestafalsa2=respuestafalsa2;
-        this.respuestafalsa3=respuestafalsa3;
-    }
-}
