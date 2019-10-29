@@ -11,14 +11,16 @@ function pregunta(){
 	
 
 
-    
+    var centrotx =window.widthArea/2;
+    console.log(centrotx);
    preguntatxt = document.createElement('div');
    preguntatxt.style.position = 'absolute';
    preguntatxt.style.width = 100;
    preguntatxt.style.height = 100;
    preguntatxt.innerHTML = "pregunta pep";
    preguntatxt.style.top = 425 + 'px';   
-   preguntatxt.style.left = 400 + 'px';
+   preguntatxt.style.left = centrotx + 'px';
+   //preguntatxt.style.alignItems="center";
    preguntatxt.style.font = "40px MyEpistolar";
    preguntatxt.style.color = "white";
    document.body.appendChild(preguntatxt);
