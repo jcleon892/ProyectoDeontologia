@@ -547,8 +547,8 @@ function init() {
 	highscoresDisplay.style.width = 100;
 	highscoresDisplay.style.height = 100;
 	highscoresDisplay.innerHTML = "";
-	highscoresDisplay.style.top = 300 + 'px';
-	highscoresDisplay.style.right = 1500 + 'px';
+	highscoresDisplay.style.top = 350 + 'px';
+	highscoresDisplay.style.left = 325 + 'px';
 	highscoresDisplay.style.font = "20px MyEpistolar";
 	highscoresDisplay.style.color = "white";
 	document.body.appendChild(highscoresDisplay);
@@ -724,9 +724,21 @@ function collision(object1, object2) {
 
 
 function gamerOver() {
+/*
 
+	var actual = new Date();
+	if (life && ((actual - timeLife) / 1000) > timeDeltaLife) {
+		life = false;
+	}
 
+	if (!life && player.lifes > 0) {
+		timeLife = new Date();
+		player.lifes--;
+		life = true;
 
+	}
+
+	*/
 	updateDatosScore();
 	leveldisplay.innerHTML = "level: "+Level;
 	lifeText.innerHTML = "  life:  " + player.lifes;
@@ -736,10 +748,10 @@ function gamerOver() {
 		document.getElementById("Rest").disabled = false;
 		document.getElementById("Rest").style.display = "block";
 		document.getElementById("Tip").disabled = true;
-	document.getElementById("Tip").style.display = "none";
+    	document.getElementById("Tip").style.display = "none";
 		updateDatosScore();
-		lifeText.innerHTML = "";
-		
+
+		lifeText.innerHTML = "";		
 		waitText.innerHTML = "";
 		plusText.innerHTML = " ";
 		leveldisplay.innerHTML = "";
@@ -762,6 +774,9 @@ function gamerOver() {
 			listOfHighScores += (i+1).toString() + " -- " + highscores[i].toString() + "<br>";
 			if(i >= 10) break;
 		}
+
+
+
 		highscoresDisplay.innerHTML=listOfHighScores;
 
 
