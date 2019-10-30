@@ -50,7 +50,7 @@ class Player extends GameObject
 	
 	ActualLevel()
 	{	
-		if(player.localPosition.y - this.initialY >alturatip){
+		if(player.localPosition.y - this.initialY >alturatip && player.localPosition.y - this.initialY >10000 &&  Level <10 ){
 			tips();
 			alturatip+=2500;
 		}
@@ -59,6 +59,9 @@ class Player extends GameObject
 		{
 			pregunta();
 			Level++;
+			pregunta1=true;
+			pregunta2=true;
+			leveldisplay.innerHTML = "level: "+Level;
 			this.initialY = player.localPosition.y;
 			alturatip=2500;
 			tips();
@@ -285,7 +288,7 @@ class Player extends GameObject
 				inShield = false;
 			}else
 			{
-				player.lifes--;
+				//player.lifes--;
 				scene.remove(enemies[enemiesIndex].mesh);	
 				enemies.splice(enemiesIndex,1);
 				enemyDestroy = false;

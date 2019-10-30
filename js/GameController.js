@@ -20,6 +20,10 @@ var highscores=[];
 var highscoresDisplay;
 var bandera = true;
 var Level =1;
+var leveldisplay;
+var perguntalevel=1;
+var pregunta1=true;
+var pregunta2=true;
 
 //backgrounds
 
@@ -548,8 +552,17 @@ function init() {
 	highscoresDisplay.style.color = "white";
 	document.body.appendChild(highscoresDisplay);
 
-	
 
+	leveldisplay = document.createElement('div');
+	leveldisplay.style.position = 'absolute';
+	leveldisplay.style.width = 100;
+	leveldisplay.style.height = 100;
+	leveldisplay.innerHTML = "";
+	leveldisplay.style.top = 160 + 'px';
+	leveldisplay.style.left = 50 + 'px';
+	leveldisplay.style.font = "20px MyEpistolar";
+	leveldisplay.style.color = "white";
+	document.body.appendChild(leveldisplay);
 
 	
 
@@ -651,7 +664,7 @@ function animate() {
 		}
 
 	}
-	lifeText.innerHTML = "  life:  " + player.lifes;
+	
 	/*if(lastTime-Date.now() > 5000-(Level*100))
 	{
 		warning.push(new Platform(new Platform(new THREE.Vector3(Math.floor(Math.random() * widthArea)),player.localPosition.y + 1000,Math.floor(Math.random() * widthArea), new THREE.Vector3(0, 1+(Level*0.2), 0), 1, 50,50,50, warningTexture, 1, 2, 1, Boolean(Math.round(Math.random())), false, true)));
@@ -724,18 +737,21 @@ function gamerOver() {
 
 	}
 	updateDatosScore();
-
+	leveldisplay.innerHTML = "level: "+Level;
 	lifeText.innerHTML = "  life:  " + player.lifes;
 
 	if (player.lifes <= 0) {
 		//document.body.appendChild(gameOmerText);
 		document.getElementById("Rest").disabled = false;
 		document.getElementById("Rest").style.display = "block";
+		document.getElementById("Tip").disabled = true;
+	document.getElementById("Tip").style.display = "none";
 		updateDatosScore();
 		lifeText.innerHTML = "";
 		
 		waitText.innerHTML = "";
 		plusText.innerHTML = " ";
+		leveldisplay.innerHTML = "";
 		
 		scoreText.style.top = 300 + 'px';
 		scoreText.style.left = 800 + 'px';
@@ -770,6 +786,9 @@ function resetGame()
 
 	document.getElementById("Rest").disabled = true;
 	document.getElementById("Rest").style.display = "none";
+	document.getElementById("Tip").disabled = false;
+	document.getElementById("Tip").style.display = "block";
+
 	bandera = true;
 	dir = 0;
 	rotAux = 0;
@@ -780,6 +799,9 @@ function resetGame()
 	scorePlus=0;
 	Level = 1;
 	player.lifes = 3;
+	tipscont=0;
+	tips();
+
 	
 	inShield = false;
 	scene.remove(Shield);
@@ -799,12 +821,13 @@ function resetGame()
 	waitText.innerHTML = "plus: " + scorePlus;
 	plusText.innerHTML = "  multiplier:  " + modifier;
 	lifeText.innerHTML = "  life:  " + player.lifes;
+	leveldisplay.innerHTML = "level: "+Level;
 
 	//init ();	
 	highscoresDisplay.innerHTML="";
 	
 	
-	player.mesh.visible = false;
+	player.mesh.visible = true;
 
 	/*console.log("posicion x del player" + player.localPosition.x);
 	console.log("posicion y del player" + player.localPosition.y);

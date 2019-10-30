@@ -189,6 +189,7 @@ function updateScore() {
 		waitText.innerHTML = "plus: " + scorePlus;
 		plusText.innerHTML = "  multiplier:  " + modifier;
 		lifeText.innerHTML = "  life:  " + player.lifes;
+		leveldisplay.innerHTML = "level: "+Level;
 	}
 
 
