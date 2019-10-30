@@ -801,17 +801,14 @@ function resetGame()
 	player.lifes = 3;
 	tipscont=0;
 	tips();
+	pregunta1=true;
+	pregunta2=true;
 
 	
 	inShield = false;
 	scene.remove(Shield);
 	
-	//arreglos de plataformas
-
-	//document.body.removeChild(renderer.domElement);
-	//document.body.removeChild(scoreText);
-	//document.body.removeChild(waitText);
-	//document.body.removeChild(lifeText);
+	
 
 	scoreText.style.top = 50 + 'px';
 	scoreText.style.left = 50 + 'px';

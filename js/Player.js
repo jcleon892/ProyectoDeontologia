@@ -269,12 +269,13 @@ class Player extends GameObject
 			{
 				//console.log("pregunta");
 
-				pregunta();
+				
 				///configuracion scrit de peguntas 
 
 
 				enemiesIndex = i;
 				enemyDestroy = true;
+				pregunta();
 			}
 		}
 		if(enemyDestroy )

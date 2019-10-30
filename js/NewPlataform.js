@@ -32,7 +32,7 @@ function NewPlaform()
 					textureFinal = platformNiflheim;
 
 				}
-				break
+				break;
 		case 2:
 				if(destroyprobability  <= 20)
 				{

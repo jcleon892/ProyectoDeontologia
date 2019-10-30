@@ -201,7 +201,7 @@ function updateDatosScore(){
 		score+=scorePlus*modifier;
 
 		if(score>1500){
-			pregunta();
+			
 		}
 		scorePlus=0;
 		modifier=1;
