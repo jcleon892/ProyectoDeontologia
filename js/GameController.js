@@ -24,6 +24,7 @@ var leveldisplay;
 var perguntalevel=1;
 var pregunta1=true;
 var pregunta2=true;
+var preguntaNivel=false;
 
 //backgrounds
 
@@ -725,17 +726,7 @@ function collision(object1, object2) {
 function gamerOver() {
 
 
-	var actual = new Date();
-	if (life && ((actual - timeLife) / 1000) > timeDeltaLife) {
-		life = false;
-	}
 
-	if (!life && player.lifes > 0) {
-		timeLife = new Date();
-		player.lifes--;
-		life = true;
-
-	}
 	updateDatosScore();
 	leveldisplay.innerHTML = "level: "+Level;
 	lifeText.innerHTML = "  life:  " + player.lifes;
@@ -824,7 +815,7 @@ function resetGame()
 	highscoresDisplay.innerHTML="";
 	
 	
-	player.mesh.visible = true;
+	
 
 	/*console.log("posicion x del player" + player.localPosition.x);
 	console.log("posicion y del player" + player.localPosition.y);
@@ -894,7 +885,7 @@ function resetGame()
 	//platforms.push(new Platform(new THREE.Vector3(player.localPosition.x,player.localPosition.y-100,player.localPosition.z), new THREE.Vector3(0, 0, 0), 1, 200, 30, 50,textureFinal, 1, 2, 1, Boolean(Math.round(Math.random())), false, true));
 	initPlaform(20);
 	initEnemies(20);
-	
+	player.mesh.visible = true;
 	
 	initGame = true;
 }

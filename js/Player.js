@@ -56,8 +56,9 @@ class Player extends GameObject
 		}
 
 		if(player.localPosition.y - this.initialY > 10000 && Level <10)
-		{
-			pregunta();
+		{ 
+			preguntaNivel=true;
+			pregunta();			
 			Level++;
 			pregunta1=true;
 			pregunta2=true;

@@ -140,10 +140,11 @@ function pregunta() {
       validarRespuesta(opc, resp, "d");
     });
 
-
   }
-
-
+  
+  if(!pregunta1 && !pregunta2){
+    preguntaNivel=false;
+  }
 
 }
 
@@ -173,12 +174,16 @@ function respuestaErronea() {
  
   player.lifes--;
   lifeText.innerHTML = "  life:  " + player.lifes;
-  
+
   document.getElementById("Preg").disabled = true;
   document.getElementById("Preg").style.display = "none";
   document.getElementById("Tip").disabled = false;
   document.getElementById("Tip").style.display = "block";
   initGame = true;
+
+  if(preguntaNivel){
+    pregunta();
+  }
 
 }
 
@@ -189,6 +194,10 @@ function respuestaCorrecta() {
   document.getElementById("Tip").disabled = false;
   document.getElementById("Tip").style.display = "block";
   initGame = true;
+
+  if(preguntaNivel){
+    pregunta();
+  }
 
 }
 
