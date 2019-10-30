@@ -268,15 +268,10 @@ class Player extends GameObject
 		{
 			if(collision(this,enemies[i]))
 			{
-				//console.log("pregunta");
-
 				
-				///configuracion scrit de peguntas 
-
-
 				enemiesIndex = i;
 				enemyDestroy = true;
-				pregunta();
+				
 			}
 		}
 		if(enemyDestroy )
@@ -290,7 +285,7 @@ class Player extends GameObject
 				inShield = false;
 			}else
 			{
-				//player.lifes--;
+				pregunta();
 				scene.remove(enemies[enemiesIndex].mesh);	
 				enemies.splice(enemiesIndex,1);
 				enemyDestroy = false;

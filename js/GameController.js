@@ -303,17 +303,6 @@ function init() {
 	warningTexture.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/plataforma_aviso/plat1Aviso.png"), side: THREE.DoubleSide }));
 	warningTexture.push(new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load("Images/plataforma_aviso/plat1Aviso.png"), side: THREE.DoubleSide }));
 
-
-
-
-
-
-
-
-
-	////////Asgard
-	////////Valhalla
-	//carga de sonidos
 	warpAudio = new Audio("Audio/Sonidos/OGG/PWU-Warp.ogg");
 	hyperJumpAudio = new Audio("Audio/Sonidos/OGG/PWU-HyperJump.ogg");
 	shieldAudio = new Audio("Audio/Sonidos/OGG/PWU-Shield.ogg");
@@ -331,27 +320,12 @@ function init() {
 	menuAudio.volume = 0.7;
 	gameplayAudio.volume = 0.7;
 
-	//CREATE ALL INITIAL OBJECTS
-
-	// Create a scene
 	scene = new THREE.Scene();
 
-	// Add the mesh to the scene
 
 	player = new Player(new THREE.Vector3(5, 500, -200), new THREE.Vector3(45, 0, 45), 3, 70, 70, 70, playerGame, 0.1, 10, true);
 	player.mesh.visible = true;
-    // prepare loader and load the model
-    /*var oLoader = new THREE.OBJMTLLoader();
-    oLoader.load('models/yggdra70.obj', 'models/yggdra70.mtl', function(object) {
-		obj = object;
-		object.position.x = player.localPosition.x;
-		object.position.y = player.localPosition.y;
-		object.position.z = player.localPosition.z;
-		object.scale.set(1,1,1);
-		scene.add(object);
-    });
-*/
-    // prepare loader and load the model
+
     var oLoader = new THREE.OBJLoader();
     oLoader.load('models/yggdra70.obj', function(object, materials) {
 	
@@ -359,16 +333,9 @@ function init() {
 
       object.traverse( function(child) {
         if (child instanceof THREE.Mesh) {
-
-          // apply custom material
+l
 			child.material = mat;
-			//var texture = new THREE.TextureLoader().load( 'models/tex.png' );
-          // enable casting shadows
-		  //texture.encoding = THREE.sRGBEncoding;
-		  //texture.anisotropy = 16;
-		  //child.material.map = mat;
-          //child.castShadow = true;
-          //child.receiveShadow = true;
+		
         }
       });
       
@@ -379,61 +346,7 @@ function init() {
 		object.scale.set(1,1,1);
 		scene.add(object);
     });
-	
-	/*var mtlLoader = new THREE.MTLLoader();
-	//mtlLoader.setPath( "https://threejs.org/examples/models/obj/walt/" );
-	mtlLoader.load( 'models/yggdra70.mtl', function( materials ) {
 
-	  materials.preload();
-	  var objLoader = new THREE.OBJLoader();
-	  objLoader.setMaterials( materials );
-	  //objLoader.setPath( "https://threejs.org/examples/models/obj/walt/" );
-	  objLoader.load( 'models/yggdra70.obj', function ( object ) {
-
-		obj = object;
-		object.position.x = player.localPosition.x;
-		object.position.y = player.localPosition.y;
-		object.position.z = player.localPosition.z;
-		object.scale.set(1,1,1);
-		scene.add(object);
-		console.log(object);
-	  } );
-
-	} );
-	*/
-	
-	/*var loader = new THREE.OBJLoader();
-	loader.load('models/yggdra70.obj', function onLoad (object) {
-	object.traverse( function ( child ) 
-	{
-		if ( child.isMesh ) {
-						
-				child.material = new THREE.MeshStandardMaterial();
-				var texture = new THREE.TextureLoader().load( 'models/tex.png' );
-				texture.encoding = THREE.sRGBEncoding;
-				texture.anisotropy = 16;
-
-				child.material.map = texture;
-				child.flatShading = true;
-				child.castShadow = true;
-			}
-		} );
-	});
-	*/
-	/*var loader = new THREE.GLTFLoader();
-
-	loader.load( 'models/yggdra70.glb', function ( gltf ) {
-
-		obj = gltf.asset;
-		gltf.asset.position.x = player.localPosition.x;
-		gltf.asset.position.y = player.localPosition.y;
-		gltf.asset.position.z = player.localPosition.z;
-		gltf.asset.scale.set(1,1,1);
-		scene.add( gltf.asset );
-
-	});*/
-	//enemies.push(new Senoidal(new THREE.Vector3(Factor()) * Math.floor(Math.random() * widthArea), 2500, Factor() * Math.floor(Math.random() * widthArea), new THREE.Vector3(1, 0, 0), 1, 50, 50, 50, enemiesTexture, 1, 2, 2, Boolean(Math.round(Math.random())), false, true));
-	//scene.add(enemies[0].mesh);
 	warning.push(new Platform(new THREE.Vector3(Math.floor(Math.random() * widthArea)),5000,Math.floor(Math.random() * widthArea), new THREE.Vector3(0, 1+(Level*0.2), 0), 1, 50,50,50, warningTexture, 1, 2, 1, Boolean(Math.round(Math.random())), false, true));
 	scene.add(warning[0].mesh);
   
@@ -739,6 +652,8 @@ function gamerOver() {
 	}
 
 	*/
+
+
 	updateDatosScore();
 	leveldisplay.innerHTML = "level: "+Level;
 	lifeText.innerHTML = "  life:  " + player.lifes;
@@ -826,17 +741,9 @@ function resetGame()
 	lifeText.innerHTML = "  life:  " + player.lifes;
 	leveldisplay.innerHTML = "level: "+Level;
 
-	//init ();	
 	highscoresDisplay.innerHTML="";
 	
 	
-	
-
-	/*console.log("posicion x del player" + player.localPosition.x);
-	console.log("posicion y del player" + player.localPosition.y);
-	console.log("posicion y del player" + player.localPosition.z);*/
-
-
 	for(var i = 0; i <= platforms.length-1; i++)
 	{
 		scene.remove(platforms[i].mesh);
@@ -863,16 +770,11 @@ function resetGame()
 	}
 	
 	powerUpsWarp = [];
-	//arreglos power ups
 	powerUpsHyperJump = [];
-	powerUpsShield = [];
-	
+	powerUpsShield = [];	
 	platforms = [];
 	enemies = [];
-	/*while(platforms.length > 0)
-	{
-		platforms.pop();
-	}*/
+	
 	
 	ceilingValue = 3000;
 	player.lifes = 3;
@@ -897,9 +799,9 @@ function resetGame()
 	camera.position.y = 0;
 	camera.position.z = 1200;
 	hyperJump = false;
-	//platforms.push(new Platform(new THREE.Vector3(player.localPosition.x,player.localPosition.y-100,player.localPosition.z), new THREE.Vector3(0, 0, 0), 1, 200, 30, 50,textureFinal, 1, 2, 1, Boolean(Math.round(Math.random())), false, true));
 	initPlaform(20);
 	initEnemies(20);
+
 	player.mesh.visible = true;
 	
 	initGame = true;
