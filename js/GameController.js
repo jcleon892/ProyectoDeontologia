@@ -53,8 +53,8 @@ var resortPowerUp = [];
 var shieldPowerUp = [];
 var warpPowerUp = [];
 
-
-
+var alturatip =2500;
+var tipscont=1;
 var platformLife1 = []; // textura ladrillo de 1 vidas
 
 var playerGame=[];

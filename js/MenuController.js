@@ -5,6 +5,7 @@ window.onload = function()
   document.getElementById("Inst")
   document.getElementById("Rest");
   document.getElementById("Preg");
+  document.getElementById("Tip");
   Init();
   ButtonsAction();
 };
@@ -23,7 +24,9 @@ function Init()
    
    document.getElementById("Preg").disabled = true;
    document.getElementById("Preg").style.display = "none";
-   
+
+     document.getElementById("Tip").disabled = true;
+   document.getElementById("Tip").style.display = "none";
    
    document.getElementById("DIE").style.disabled = true;////por alguna razon que no comprendo el primer botton del container tiene los ejes negativos, asi que lo mato
    document.getElementById("DIE").style.display = "none";
@@ -49,6 +52,9 @@ function ButtonsAction()
 	document.getElementById("Menu").disabled = true;
 	document.getElementById("Menu").style.display = "none";
 		initGame = true;
+		document.getElementById("Tip").disabled = false;
+		document.getElementById("Tip").style.display = "block";
+
 		/*
 		for(let i = 0; i < powerUps1.length;i++)
 		{

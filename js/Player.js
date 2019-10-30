@@ -50,10 +50,18 @@ class Player extends GameObject
 	
 	ActualLevel()
 	{	
+		if(player.localPosition.y - this.initialY >alturatip){
+			tips();
+			alturatip+=2500;
+		}
+
 		if(player.localPosition.y - this.initialY > 10000 && Level <10)
 		{
+			pregunta();
 			Level++;
 			this.initialY = player.localPosition.y;
+			alturatip=2500;
+			tips();
 		}
 	}
 	
