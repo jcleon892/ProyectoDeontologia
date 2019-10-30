@@ -50,7 +50,7 @@ if(pregunta1 || pregunta2){
     pregu+=2;
   }
 
-  document.getElementById("imgPre").src="Images/quest/"+pregu+".jpeg";
+  document.getElementById("imgPre").src="Images/quest/"+pregu+".png";
 
   	
   waitText.innerHTML = "";
@@ -64,7 +64,9 @@ if(pregunta1 || pregunta2){
     
 	document.getElementById("btnA").addEventListener('click', function (event)
 	{
-		console.log("boton A")
+    console.log("boton A")
+    
+    validarRespuesta(pregu);
 	});
 
 	document.getElementById("btnB").addEventListener('click', function (event)
@@ -89,7 +91,7 @@ if(pregunta1 || pregunta2){
 
 }
 
-function validarRespuesta(){
+function validarRespuesta(valid, a){
 
 }
 
